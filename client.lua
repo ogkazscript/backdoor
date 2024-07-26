@@ -3,7 +3,6 @@
 
 -- Instances:
 
-game.ReplicatedStorage:WaitForChild("RemoteEvent").OnClientEvent:Connect(function()
 
 local MainUI = Instance.new("ScreenGui")
 local Container = Instance.new("Frame")
@@ -770,9 +769,9 @@ TextBox_3.TextWrapped = true
 				if v.Text == "Particle" or v.Text == "Sound" or v.Text == "MessageAll" then
 				
 					local id = SettingsContainer[v.Text .. "Frame"].TextBox.Text
-					game.ReplicatedStorage.RemoteEvent:FireServer(v.Text, id)
+					game.ReplicatedStorage:WaitForChild("RemoteEvent"):FireServer(v.Text, id)
 				else
-					game.ReplicatedStorage.RemoteEvent:FireServer(v.Text)
+					game.ReplicatedStorage:WaitForChild("RemoteEvent"):FireServer(v.Text)
 				end
 			end)
 		end
